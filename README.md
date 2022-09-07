@@ -4,8 +4,8 @@
 
 ### 使用 nvm 来管理 node 版本   
 
-    nvm -v 1.1.7
-    node -v 14.14.0
+    nvm -v   [本项目版本1.1.7]
+    node -v    [本项目版本14.17.0]
 
 ### 使用 yarn 管理 npm 依赖，并使用国内源
 
@@ -15,7 +15,7 @@
 
 ### 通过umijs3.x版本官方工具创建项目
 
-    yarn create @umijs/umi-app
+    yarn create @umijs/umi-app [使用模板创建项目时,这一步可以直接省略]
 
 ### 安装依赖
 
@@ -26,21 +26,23 @@
 
     /mock
     /src
-        /.umi 临时文件，由umi自动生成
-        /components 非路由组件
-        /models 数据层
-        /pages 路由组件
-        /services 请求文件
-        /utils 工具文件
-        app.tsx 运行时配置文件，先于入口文件运行，运行顺序：global.tsx > app.tsx > umi.ts
-        global.less 全局样式
-        global.tsx 全局逻辑
-    .env 正式环境变量
-    .env.development 开发环境变量
+        /.umi --- 临时文件，由umi自动生成
+        /assets --- 静态
+        /components --- 非路由组件
+        /layouts --- 布局文件
+        /models --- 数据层
+        /pages --- 路由组件
+        /services --- 请求文件
+        /utils --- 工具文件
+        app.tsx --- 运行时配置文件，先于入口文件运行，运行顺序：global.tsx > app.tsx > umi.ts
+        global.less --- 全局样式
+        global.tsx --- 全局逻辑
+    .env --- 正式环境变量
+    .env.development --- 开发环境变量
     .gitignore
     .prettierignore
-    .prettierc  prettier配置文件，后续删除，使用umijs/fabric代替
-    .umirc.ts 约定式配置
+    .prettierc --- prettier配置文件，后续删除，使用umijs/fabric代替
+    .umirc.ts --- 约定式配置
     README.md
     tsconfig.json
     typings.d.ts
@@ -91,10 +93,10 @@ umi 维护了一个 prettier，eslint，stylelint 的配置文件合集 umi-fabr
         },
     }
 
-Ⅰ 解决 eslint 和 prettier 冲突
-①使用 eslint-config-prettier 来关掉 (disable) 所有和 Prettier 冲突的 ESLint 的配置，这一步umi-fabric已经帮我们做过了。
-②（可选）再启用 eslint-plugin-prettier ，将 prettier 的 rules 以插件的形式加入到 ESLint 里面，讲prettier的报错内容以eslint的方式提示出来。
-这里插一句，为什么"可选" ？当你使用 Prettier + ESLint 的时候，其实格式问题两个都有参与，disable ESLint 之后，其实格式的问题已经全部由 prettier 接手了。那我们为什么还要这个 plugin？其实是因为我们期望报错的来源依旧是 ESLint ，使用这个，相当于把 Prettier 推荐的格式问题的配置以 ESLint rules 的方式写入，这样相当于可以统一代码问题的来源。
+Ⅰ 解决 eslint 和 prettier 冲突  
+①使用 eslint-config-prettier 来关掉 (disable) 所有和 Prettier 冲突的 ESLint 的配置，这一步umi-fabric已经帮我们做过了。  
+②（可选）再启用 eslint-plugin-prettier ，将 prettier 的 rules 以插件的形式加入到 ESLint 里面，讲prettier的报错内容以eslint的方式提示出来。  
+这里插一句，为什么"可选" ？当你使用 Prettier + ESLint 的时候，其实格式问题两个都有参与，disable ESLint 之后，其实格式的问题已经全部由 prettier 接手了。那我们为什么还要这个 plugin？其实是因为我们期望报错的来源依旧是 ESLint ，使用这个，相当于把 Prettier 推荐的格式问题的配置以 ESLint rules 的方式写入，这样相当于可以统一代码问题的来源。  
 
     yarn add eslint-plugin-prettier -D
 
@@ -105,7 +107,7 @@ umi 维护了一个 prettier，eslint，stylelint 的配置文件合集 umi-fabr
         "prettier/prettier": "error"
     }
 
-随即会带来一个问题，就是window / mac文件格式问题 “Delete CR”, 解决方式，将文件格式由CRLF改为LF即可。
+随即会带来一个问题，就是window / mac文件格式问题 “Delete CR”, 解决方式，将文件格式由CRLF改为LF即可。  
 
 Ⅱ 解决 stylelint 和 prettier 冲突
 ①使用 stylelint-config-prettier 来关掉 (disable) 所有和 Prettier 冲突的 stylelint 的配置，这一步umi-fabric已经帮我们做过了。
@@ -166,18 +168,18 @@ commit—message提交格式如下：
 <!-- <BLANK LINE> -->
 <!-- <footer> -->
 
-build：主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交
-ci：主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交
-docs：文档更新
-feat：新增功能
-merge：分支合并 Merge branch ? of ?
-fix：bug 修复
-perf：性能, 体验优化
-refactor：重构代码(既没有新增功能，也没有修复 bug)
-style：不影响程序逻辑的代码修改(修改空白字符，格式缩进，补全缺失的分号等，没有改变代码逻辑)
-test：新增测试用例或是更新现有测试
-revert：回滚某个更早之前的提交
-chore：不属于以上类型的其他类型
+build：主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交  
+ci：主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交  
+docs：文档更新  
+feat：新增功能  
+merge：分支合并 Merge branch ? of ?  
+fix：bug 修复  
+perf：性能, 体验优化  
+refactor：重构代码(既没有新增功能，也没有修复 bug)  
+style：不影响程序逻辑的代码修改(修改空白字符，格式缩进，补全缺失的分号等，没有改变代码逻辑)  
+test：新增测试用例或是更新现有测试  
+revert：回滚某个更早之前的提交  
+chore：不属于以上类型的其他类型  
 
 注意： 安装并配置了husky后，package.json中的
 
