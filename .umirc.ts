@@ -22,4 +22,12 @@ export default defineConfig({
     },
   ],
   fastRefresh: {},
+  proxy: {
+    "/api": {
+      target: "https://entalk.myuclass.com", // 正式线上地址
+      // target: 'http://172.16.1.88:8080',  // 测试地址
+      changeOrigin: true,
+      pathRewrite: { "^/api": "" },
+    },
+  },
 })
