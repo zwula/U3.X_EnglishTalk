@@ -1,6 +1,7 @@
 import { defineConfig } from "umi"
 
 export default defineConfig({
+  title: "听说帮自研版",
   nodeModulesTransform: {
     type: "none",
   },
@@ -15,6 +16,8 @@ export default defineConfig({
         {
           path: "/login",
           component: "@/pages/Login",
+          showHeader: false,
+          showFooter: false,
         },
         // 首页
         { exact: true, path: "/", component: "@/pages/index" },
@@ -23,6 +26,7 @@ export default defineConfig({
   ],
   fastRefresh: {},
   proxy: {
+    // 使用代理解决跨域问题
     "/api": {
       target: "https://entalk.myuclass.com", // 正式线上地址
       // target: 'http://172.16.1.88:8080',  // 测试地址

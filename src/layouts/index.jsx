@@ -12,17 +12,68 @@ import Header from "../components/Header"
 
 import styles from "./index.less"
 
+const showHeader = (props) => {
+  // 从所有的路由中查找当前路由，并根据当前路由对象中的 showHeader / showFooter 字段确定是否显示对应组件
+  const { route, location } = props
+  let curRoute
+  if (route && route.routes && route.routes.length > 0) {
+    curRoute = route.routes.find((routeItem, routeIndex) => {
+      return routeItem.path === location.pathname
+    })
+  }
+  return curRoute.showHeader
+}
+
+const showFooter = (props) => {
+  const { route, location } = props
+  let curRoute
+  if (route && route.routes && route.routes.length > 0) {
+    curRoute = route.routes.find((routeItem, routeIndex) => {
+      return routeItem.path === location.pathname
+    })
+  }
+  return curRoute.showFooter
+}
+
 const BasicLayout = (props) => {
   const { children } = props
+
+  const showHeader = (props) => {
+    // 从所有的路由中查找当前路由，并根据当前路由对象中的 showHeader / showFooter 字段确定是否显示对应组件
+    const { route, location } = props
+    let curRoute
+    if (route && route.routes && route.routes.length > 0) {
+      curRoute = route.routes.find((routeItem, routeIndex) => {
+        return routeItem.path === location.pathname
+      })
+    }
+    return curRoute.showHeader
+  }
+
+  const showFooter = (props) => {
+    const { route, location } = props
+    let curRoute
+    if (route && route.routes && route.routes.length > 0) {
+      curRoute = route.routes.find((routeItem, routeIndex) => {
+        return routeItem.path === location.pathname
+      })
+    }
+    return curRoute.showFooter
+  }
+
   return (
     <div className={styles.layout}>
-      <div className={styles.header}>
-        <Header />
-      </div>
+      {showHeader(props) && (
+        <div className={styles.header}>
+          <Header />
+        </div>
+      )}
       <div className={styles.main}>{children}</div>
-      <div className={styles.footer}>
-        <Footer />
-      </div>
+      {showFooter(props) && (
+        <div className={styles.footer}>
+          <Footer />
+        </div>
+      )}
     </div>
   )
 }
