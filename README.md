@@ -48,7 +48,7 @@
     typings.d.ts
 
 
-# 三、项目配置
+# 三、配置校验
 ### 配置umi-fabric
 umi 维护了一个 prettier，eslint，stylelint 的配置文件合集 umi-fabric
 
@@ -206,3 +206,32 @@ commit—message提交格式如下：
     "gitHooks": {
         "pre-commit": "lint-staged"
     }
+
+# 四、项目说明
+该项目中，我们没有通过配置.umirc.ts文件中的layout选项使用umi3.x内置的antdPro布局组件，而采用了使用自定义layout布局组件，从而可以根据项目需求自定义布局样式/逻辑等等。
+
+在.umirc.ts文件中配置routes选项，将所有的  路由（视图）组件【page中的组件】  注册为自定义layout布局的子组件进行渲染
+
+    routes: [
+        {
+            path: "/",
+            component: "@/layouts",
+            // routes中的组件自动会成为layouts的children进行渲染
+            routes: [
+                // 注册
+                // 登录
+                {
+                    path: "/login",
+                    component: "@/pages/Login",
+                },
+                // 首页
+                { exact: true, path: "/", component: "@/pages/index" },
+            ],
+        },
+    ],      
+
+我们通常在自定义layout布局完成一下内容：  
+
+1、 样式布局
+2、 身份验证  
+3、 初始化数据
