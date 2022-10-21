@@ -4,7 +4,7 @@ import { Link } from "umi"
 import styles from "./index.less"
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: "//at.alicdn.com/t/c/font_3645040_2okseablz01.js",
+  scriptUrl: "//at.alicdn.com/t/c/font_3645040_df8prq8zvt8.js",
 })
 
 const Header = () => {
