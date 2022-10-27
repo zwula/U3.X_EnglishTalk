@@ -8,8 +8,8 @@ export const signIn = (data) => {
   })
 }
 // 注册
-export const signUp = () => {
+export const signUp = (data) => {
   return request.post(SIGNUP, {
-    data: {},
+    data,
   })
 }

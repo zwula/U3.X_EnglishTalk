@@ -12,12 +12,10 @@ const IconFont = createFromIconfontCN({
 })
 
 const SignIn = (props) => {
-  console.log("props", props)
   // 状态值
   const [errMessage, setErrMessage] = useState("")
 
   const onFinish = async (values) => {
-    console.log("点击登录时接受到的参数", values)
     const { account, password } = values
 
     // 验证
