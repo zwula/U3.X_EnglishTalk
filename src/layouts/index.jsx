@@ -47,7 +47,7 @@ const BasicLayout = (props) => {
         return routeItem.path === location.pathname
       })
     }
-    return curRoute.showHeader
+    return (curRoute && curRoute.showHeader) || true
   }
 
   const showFooter = (props) => {
@@ -58,7 +58,7 @@ const BasicLayout = (props) => {
         return routeItem.path === location.pathname
       })
     }
-    return curRoute.showFooter
+    return (curRoute && curRoute.showFooter) || true
   }
 
   return (
