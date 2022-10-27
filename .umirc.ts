@@ -20,7 +20,13 @@ export default defineConfig({
           showFooter: false,
         },
         // 首页
-        { exact: true, path: "/", component: "@/pages/index" },
+        {
+          exact: true,
+          path: "/myBook",
+          component: "@/pages/MyBook",
+          showHeader: true,
+          showFooter: true,
+        },
       ],
     },
   ],
